@@ -77,7 +77,7 @@ begin
     if (self.Controls[i] is TLabeledEdit) then begin
       TLabeledEdit(self.Controls[i]).Clear;
     end else if (self.controls[i] is TMemo) then begin
-       TMemo(self.Controls[i]).Clear;
+       TMemo(self.controls[i]).Clear;
     end;
   end;
 end;

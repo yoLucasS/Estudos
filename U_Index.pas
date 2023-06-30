@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.jpeg,
   Vcl.Imaging.pngimage, U_NewPersonagem, Vcl.StdCtrls, U_VisuPersonagens,
-  Vcl.Imaging.GIFImg;
+  Vcl.Imaging.GIFImg, Vcl.MPlayer;
 
 type
   TFormPrincipal = class(TForm)
@@ -29,6 +29,7 @@ type
     img_Logout: TImage;
     Panel2: TPanel;
     gif: TImage;
+    MediaPlayer1: TMediaPlayer;
     procedure img_CloseClick(Sender: TObject);
     procedure pnl_NovoPersonagemClick(Sender: TObject);
     procedure CloseForms;
@@ -36,6 +37,8 @@ type
     procedure pnl_VisPersonagensClick(Sender: TObject);
     procedure pnl_LogoutClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure gifMouseEnter(Sender: TObject);
+    procedure gifMouseLeave(Sender: TObject);
   private
     { Private declarations }
   public
@@ -64,6 +67,18 @@ end;
 procedure TFormPrincipal.FormCreate(Sender: TObject);
 begin
   (gif.Picture.Graphic as TGIFImage).Animate:=true;
+end;
+
+procedure TFormPrincipal.gifMouseEnter(Sender: TObject);
+begin
+  MediaPlayer1.Filename:='C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\SaveTube.App-Zenitsu-sound-effect.wav';
+  MediaPlayer1.Open;
+  MediaPlayer1.Play;
+end;
+
+procedure TFormPrincipal.gifMouseLeave(Sender: TObject);
+begin
+  MediaPlayer1.Pause;
 end;
 
 procedure TFormPrincipal.img_CloseClick(Sender: TObject);
