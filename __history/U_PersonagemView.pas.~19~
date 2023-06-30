@@ -1,0 +1,66 @@
+unit U_PersonagemView;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.jpeg, Vcl.ExtCtrls,
+  Vcl.StdCtrls, Vcl.WinXCalendars, Vcl.Mask;
+
+type
+  TFormViewP = class(TForm)
+    Image1: TImage;
+    lb_Tittle: TLabel;
+    pnl_Container: TPanel;
+    memo_Estilo: TMemo;
+    memo_Poderes: TMemo;
+    lb_Poderes: TLabel;
+    lb_Est: TLabel;
+    edt_Resp: TLabeledEdit;
+    DataNasc: TCalendarPicker;
+    edt_Ocupacao: TLabeledEdit;
+    lb_DateNasc: TLabel;
+    edt_Nome: TLabeledEdit;
+    edt_Raca: TLabeledEdit;
+    lbHabilidades: TLabel;
+    lbInf: TLabel;
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure PegarDados(const Nome, Raca, Ocupacao, Respiracao, Poderes, EstiloLuta : string;DtNasc:TDateTime);
+  end;
+
+var
+  FormViewP: TFormViewP;
+  FNome, FRaca, FOcupacao, FRespiracao, FPoderes, FEstiloLuta: string;
+  FDtNasc: TDateTime;
+implementation
+
+{$R *.dfm}
+
+{ TFormViewP }
+
+procedure TFormViewP.FormShow(Sender: TObject);
+begin
+  edt_Nome.Text:=FNome;
+  edt_Raca.Text:=FRaca;
+  edt_ocupacao.Text:=FOcupacao;
+  edt_Resp.Text:=FRespiracao;
+  memo_Estilo.Text:=FEstiloLuta;
+  memo_Poderes.Text:=FPoderes;
+end;
+
+procedure TFormViewP.PegarDados(const Nome, Raca, Ocupacao, Respiracao, Poderes,
+  EstiloLuta: string; DtNasc: TDateTime);
+begin
+  FNome:=Nome;
+  FRaca:=Raca;
+  FOcupacao:=Ocupacao;
+  FRespiracao:=Respiracao;
+  FEstiloLuta:=EstiloLuta;
+  FPoderes:=Poderes;
+end;
+
+end.

@@ -3,8 +3,8 @@
 	<Transactions>
     <Transaction>2023/06/22 15:40:00.000.720,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2023/06/28 14:46:38.000.467,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2023/06/28 15:21:02.000.994,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2023/06/28 15:21:02.000.994,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/06/28 15:21:02.000.994,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>2023/06/28 15:21:08.000.565,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Project1.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
     <Transaction>2023/06/28 15:21:20.000.229,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit2.pas</Transaction>
     <Transaction>2023/06/29 08:42:58.000.317,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit3.pas</Transaction>
@@ -24,8 +24,11 @@
     <Transaction>2023/06/29 14:29:19.000.103,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas</Transaction>
     <Transaction>2023/06/29 14:29:33.000.098,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\ClassCadastroPersonagem.pas</Transaction>
     <Transaction>2023/06/29 16:33:51.000.171,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas</Transaction>
-    <Transaction>2023/06/29 16:34:11.000.455,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_VisuPersonagens.dfm</Transaction>
     <Transaction>2023/06/29 16:34:11.000.455,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_VisuPersonagens.pas</Transaction>
+    <Transaction>2023/06/29 16:34:11.000.455,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_VisuPersonagens.dfm</Transaction>
     <Transaction>2023/06/30 09:12:58.000.820,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\ClassCadastroPersonagem.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\ClassPersonagem.pas</Transaction>
+    <Transaction>2023/06/30 13:34:53.917,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas</Transaction>
+    <Transaction>2023/06/30 13:35:07.122,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_PersonagemView.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas</Transaction>
+    <Transaction>2023/06/30 13:35:07.122,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_PersonagemView.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.dfm</Transaction>
   </Transactions>
 </BorlandProject>

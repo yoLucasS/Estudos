@@ -124,6 +124,10 @@
             <Form>FormVisuPerso</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="U_PersonagemView.pas">
+            <Form>FormViewP</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

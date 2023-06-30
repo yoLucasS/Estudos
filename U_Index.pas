@@ -30,13 +30,14 @@ type
     Panel2: TPanel;
     gif: TImage;
     MediaPlayer1: TMediaPlayer;
+    Panel1: TPanel;
+    lb_Tittle: TLabel;
     procedure img_CloseClick(Sender: TObject);
     procedure pnl_NovoPersonagemClick(Sender: TObject);
     procedure CloseForms;
     procedure pnl_HomeClick(Sender: TObject);
     procedure pnl_VisPersonagensClick(Sender: TObject);
     procedure pnl_LogoutClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure gifMouseEnter(Sender: TObject);
     procedure gifMouseLeave(Sender: TObject);
   private
@@ -64,13 +65,9 @@ begin
   end;
 end;
 
-procedure TFormPrincipal.FormCreate(Sender: TObject);
-begin
-  (gif.Picture.Graphic as TGIFImage).Animate:=true;
-end;
-
 procedure TFormPrincipal.gifMouseEnter(Sender: TObject);
 begin
+  (gif.Picture.Graphic as TGIFImage).Animate:=true;
   MediaPlayer1.Filename:='C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\SaveTube.App-Zenitsu-sound-effect.wav';
   MediaPlayer1.Open;
   MediaPlayer1.Play;
@@ -78,6 +75,7 @@ end;
 
 procedure TFormPrincipal.gifMouseLeave(Sender: TObject);
 begin
+  (gif.Picture.Graphic as TGIFImage).Animate:=false;
   MediaPlayer1.Pause;
 end;
 

@@ -8,7 +8,8 @@ uses
   U_Con in 'U_Con.pas' {DmConn: TDataModule},
   U_NewPersonagem in 'U_NewPersonagem.pas' {FormNewPersonagem},
   ClassPersonagem in 'ClassPersonagem.pas',
-  U_VisuPersonagens in 'U_VisuPersonagens.pas' {FormVisuPerso};
+  U_VisuPersonagens in 'U_VisuPersonagens.pas' {FormVisuPerso},
+  U_PersonagemView in 'U_PersonagemView.pas' {FormViewP};
 
 {$R *.res}
 
@@ -20,5 +21,6 @@ begin
   Application.CreateForm(TDmConn, DmConn);
   Application.CreateForm(TFormNewPersonagem, FormNewPersonagem);
   Application.CreateForm(TFormVisuPerso, FormVisuPerso);
+  Application.CreateForm(TFormViewP, FormViewP);
   Application.Run;
 end.

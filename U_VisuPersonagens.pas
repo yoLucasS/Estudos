@@ -9,7 +9,7 @@ uses
   U_Con, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  Vcl.Mask, ClassPersonagem;
+  Vcl.Mask, ClassPersonagem, U_PersonagemView;
 
 type
   TCustom = class(TCustomDBGrid);
@@ -39,12 +39,30 @@ implementation
 
 {$R *.dfm}
 
+uses U_Index;
+
 procedure TFormVisuPerso.db_PersonagensDblClick(Sender: TObject);
 var
-  Nome:string;
+  View:TFormViewP;
+  Nome, Raca, Ocupacao, Respiracao, Poderes, EstiloLuta: string;
+  DtNasc: TDateTime;
 begin
-  Nome:=db_Personagens.DataSource.DataSet.FieldByName('nome').AsString;
-  showmessage(Nome);
+  FormPrincipal.CloseForms;
+  Nome := db_Personagens.DataSource.DataSet.FieldByName('nome').AsString;
+  Raca := db_Personagens.DataSource.DataSet.FieldByName('raca').AsString;
+  Ocupacao := db_Personagens.DataSource.DataSet.FieldByName('ocupacao').AsString;
+  Respiracao := db_Personagens.DataSource.DataSet.FieldByName('respiracoes').AsString;
+  EstiloLuta := db_Personagens.DataSource.DataSet.FieldByName('habilidades').AsString;
+  Poderes := db_Personagens.DataSource.DataSet.FieldByName('poderes').AsString;
+  DtNasc := db_Personagens.DataSource.DataSet.FieldByName('data_nasc').AsDateTime;
+  View:=TFormViewP.Create(nil);
+  try
+  View.PegarDados(Nome, Raca, Ocupacao, Respiracao, Poderes, EstiloLuta, DtNasc);
+  FormViewP.Parent := FormPrincipal.pnl_Container;
+  FormViewP.Show;
+  finally
+    View.Free;
+  end;
 end;
 
 procedure TFormVisuPerso.db_PersonagensDrawColumnCell(Sender: TObject;
