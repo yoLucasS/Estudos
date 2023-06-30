@@ -1,0 +1,47 @@
+unit ClassCadastroPersonagem;
+
+interface
+
+type
+
+  TPersonagem = class
+  private
+    FNome:string;
+    FRaca:string;
+    FDataNasc:TDate;
+    FOcupacao:string;
+    FRespiracao:string;
+    FHabilidades:string;
+    FPoderes:string;
+  public
+    constructor Create(const ANome, ARaca, AOcupacao, ARespiracao, AHabilidades, APoderes:string; ADataNasc:TDate);
+    function CadNovoPersonagem:TPersonagem;
+  end;
+
+implementation
+
+uses
+  FireDAC.Comp.Client;
+
+{ TPersonagem }
+
+function TPersonagem.CadNovoPersonagem: TPersonagem;
+var
+  Query:TFdQuery;
+begin
+
+end;
+
+constructor TPersonagem.Create(const ANome, ARaca, AOcupacao, ARespiracao,
+  AHabilidades, APoderes: string; ADataNasc: TDate);
+begin
+  FNome:=ANome;
+  FRaca:=ARaca;
+  FDataNasc:=ADataNasc;
+  FOcupacao:=AOcupacao;
+  FRespiracao:=ARespiracao;
+  FHabilidades:=AHabilidades;
+  FPoderes:=APoderes;
+end;
+
+end.

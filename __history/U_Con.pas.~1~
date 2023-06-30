@@ -1,0 +1,25 @@
+unit U_Con;
+
+interface
+
+uses
+  System.SysUtils, System.Classes;
+
+type
+  TDmConn = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DmConn: TDmConn;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

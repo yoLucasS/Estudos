@@ -1,0 +1,13 @@
+object DataModule3: TDataModule3
+  Height = 291
+  Width = 361
+  object FDConnection1: TFDConnection
+    Left = 72
+    Top = 56
+  end
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    VendorHome = 's'
+    Left = 192
+    Top = 64
+  end
+end

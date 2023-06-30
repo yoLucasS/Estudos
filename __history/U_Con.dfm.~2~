@@ -1,0 +1,12 @@
+object DmConn: TDmConn
+  Height = 480
+  Width = 640
+  object Conn: TFDConnection
+    Left = 64
+    Top = 40
+  end
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    Left = 392
+    Top = 80
+  end
+end

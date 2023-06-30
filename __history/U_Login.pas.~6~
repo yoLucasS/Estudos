@@ -1,0 +1,119 @@
+unit U_Login;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, ClassLogin,
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls, U_Index;
+
+type
+  TFormLogin = class(TForm)
+    edt_User: TEdit;
+    edt_Senha: TEdit;
+    Image1: TImage;
+    pnl_Login: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Image2: TImage;
+    lb_Error: TLabel;
+    Timer: TTimer;
+    pnl_F1: TPanel;
+    Pnl_F2: TPanel;
+    Image3: TImage;
+    procedure pnl_LoginClick(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure pnl_LoginMouseEnter(Sender: TObject);
+    procedure pnl_LoginMouseLeave(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure TimerTimer(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure DrawControl(Control: TWinControl);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormLogin: TFormLogin;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormLogin.DrawControl(Control: TWinControl);
+var
+  R: TRect;
+  Rgn: HRGN;
+begin
+  with Control do
+  begin
+    R := ClientRect;
+    Rgn := CreateRoundRectRgn(R.Left, R.Top, R.Right, R.Bottom, 5, 5);
+    Perform(EM_GETRECT, 0, lParam(@R));
+    InflateRect(R, -4, -4);
+    Perform(EM_SETRECTNP, 0, lParam(@R));
+    SetWindowRgn(Handle, Rgn, True);
+    Invalidate;
+  end;
+end;
+
+procedure TFormLogin.FormCreate(Sender: TObject);
+begin
+  pnl_Login.BorderStyle := bsNone;
+  DrawControl(pnl_Login);
+end;
+
+procedure TFormLogin.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+    pnl_LoginClick(self);
+end;
+
+procedure TFormLogin.Image2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure TFormLogin.pnl_LoginClick(Sender: TObject);
+var
+  Pessoa: TPessoa;
+  User, Senha: string;
+begin
+  User := edt_User.Text;
+  Senha := edt_Senha.Text;
+
+  Pessoa := TPessoa.Create(User, Senha);
+  try
+    if Pessoa.SelectUser then begin
+      FormPrincipal.ShowModal;
+      height := -1;
+      Width := -1;
+    end else
+    begin
+      Timer.Enabled := True;
+      lb_Error.Visible := True;
+    end;
+  finally
+    Pessoa.Free;
+  end;
+end;
+
+procedure TFormLogin.pnl_LoginMouseEnter(Sender: TObject);
+begin
+  pnl_Login.Color := clBlack;
+end;
+
+procedure TFormLogin.pnl_LoginMouseLeave(Sender: TObject);
+begin
+  pnl_Login.Color := $00F6EAAC;
+end;
+
+procedure TFormLogin.TimerTimer(Sender: TObject);
+begin
+  lb_Error.Visible := false;
+end;
+
+end.

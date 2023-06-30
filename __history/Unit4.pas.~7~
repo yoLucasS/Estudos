@@ -1,0 +1,34 @@
+unit Unit4;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.jpeg,
+  Vcl.Imaging.pngimage;
+
+type
+  TFormPrincipal = class(TForm)
+    img_Fundo: TImage;
+    img_Close: TImage;
+    Panel1: TPanel;
+    procedure img_CloseClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormPrincipal: TFormPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormPrincipal.img_CloseClick(Sender: TObject);
+begin
+  close;
+end;
+
+end.

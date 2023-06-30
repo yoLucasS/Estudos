@@ -1,0 +1,17 @@
+object DataModule3: TDataModule3
+  Height = 291
+  Width = 361
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'DriverID=PG')
+    Left = 72
+    Top = 56
+  end
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    VendorHome = 
+      'C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Win32\' +
+      'Debug'
+    Left = 192
+    Top = 64
+  end
+end

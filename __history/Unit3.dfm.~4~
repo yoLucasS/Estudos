@@ -1,0 +1,16 @@
+object DataModule3: TDataModule3
+  Height = 291
+  Width = 361
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'DriverID=PG'
+      'User_Name=postgres')
+    Left = 72
+    Top = 56
+  end
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    VendorLib = 'C:\Users\User\Downloads\psqlodbc_15_00_0000\psqlodbc\libpq.dll'
+    Left = 192
+    Top = 64
+  end
+end
