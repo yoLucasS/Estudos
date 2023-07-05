@@ -31666,6 +31666,22 @@ object FormViewP: TFormViewP
     ParentColor = False
     ParentFont = False
   end
+  object lb_Aviso: TLabel
+    Left = 237
+    Top = 610
+    Width = 512
+    Height = 33
+    Caption = 'Personagem atualizado com sucesso!'
+    Color = 16382457
+    Font.Charset = ANSI_CHARSET
+    Font.Color = 14200805
+    Font.Height = -27
+    Font.Name = 'Small Fonts'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+  end
   object pnl_Container: TPanel
     Left = 188
     Top = 93
@@ -31676,7 +31692,7 @@ object FormViewP: TFormViewP
     ParentBackground = False
     TabOrder = 0
     object lb_Poderes: TLabel
-      Left = 73
+      Left = 66
       Top = 325
       Width = 51
       Height = 13
@@ -31702,8 +31718,8 @@ object FormViewP: TFormViewP
       ParentFont = False
     end
     object lb_DateNasc: TLabel
-      Left = 73
-      Top = 118
+      Left = 433
+      Top = 135
       Width = 121
       Height = 13
       Caption = 'Data de nascimento'
@@ -31715,7 +31731,7 @@ object FormViewP: TFormViewP
       ParentFont = False
     end
     object lbHabilidades: TLabel
-      Left = 73
+      Left = 66
       Top = 233
       Width = 74
       Height = 13
@@ -31730,7 +31746,7 @@ object FormViewP: TFormViewP
       ParentFont = False
     end
     object lbInf: TLabel
-      Left = 73
+      Left = 66
       Top = 36
       Width = 74
       Height = 13
@@ -31752,14 +31768,14 @@ object FormViewP: TFormViewP
       TabOrder = 0
     end
     object memo_Poderes: TMemo
-      Left = 73
+      Left = 66
       Top = 344
       Width = 176
       Height = 89
       TabOrder = 1
     end
     object edt_Resp: TLabeledEdit
-      Left = 73
+      Left = 66
       Top = 275
       Width = 256
       Height = 21
@@ -31781,33 +31797,9 @@ object FormViewP: TFormViewP
       TabOrder = 2
       Text = ''
     end
-    object DataNasc: TCalendarPicker
-      Left = 73
-      Top = 137
-      Height = 31
-      CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
-      CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
-      CalendarHeaderInfo.DaysOfWeekFont.Height = -13
-      CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
-      CalendarHeaderInfo.DaysOfWeekFont.Style = []
-      CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
-      CalendarHeaderInfo.Font.Color = clWindowText
-      CalendarHeaderInfo.Font.Height = -20
-      CalendarHeaderInfo.Font.Name = 'Segoe UI'
-      CalendarHeaderInfo.Font.Style = []
-      Color = clWindow
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clGray
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 3
-      TextHint = 'select a date'
-    end
     object edt_Ocupacao: TLabeledEdit
-      Left = 264
-      Top = 147
+      Left = 66
+      Top = 155
       Width = 265
       Height = 21
       EditLabel.Width = 62
@@ -31825,11 +31817,11 @@ object FormViewP: TFormViewP
       Font.Name = 'Small Fonts'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 4
+      TabOrder = 3
       Text = ''
     end
     object edt_Nome: TLabeledEdit
-      Left = 73
+      Left = 66
       Top = 80
       Width = 256
       Height = 21
@@ -31849,11 +31841,11 @@ object FormViewP: TFormViewP
       Font.Name = 'Small Fonts'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 5
+      TabOrder = 4
       Text = ''
     end
     object edt_Raca: TLabeledEdit
-      Left = 401
+      Left = 433
       Top = 80
       Width = 128
       Height = 21
@@ -31873,8 +31865,41 @@ object FormViewP: TFormViewP
       Font.Style = [fsBold]
       ImeName = 'Portuguese (Brazilian ABNT)'
       ParentFont = False
-      TabOrder = 6
+      TabOrder = 5
       Text = ''
     end
+    object edt_Nasc: TEdit
+      Left = 433
+      Top = 154
+      Width = 121
+      Height = 23
+      TabOrder = 6
+    end
+    object pnl_Save: TPanel
+      Left = 271
+      Top = 439
+      Width = 89
+      Height = 26
+      Cursor = crHandPoint
+      BevelOuter = bvNone
+      Caption = 'Salvar'
+      Color = 14372194
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 7
+      OnClick = pnl_SaveClick
+    end
+  end
+  object Timer: TTimer
+    Enabled = False
+    Interval = 3000
+    OnTimer = TimerTimer
+    Left = 528
+    Top = 304
   end
 end

@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.jpeg, Vcl.ExtCtrls,
-  Vcl.StdCtrls, Vcl.WinXCalendars, Vcl.Mask;
+  Vcl.StdCtrls, Vcl.WinXCalendars, Vcl.Mask, FireDAC.Comp.Client, FireDAC.DApt,
+  ClassPersonagem;
 
 type
   TFormViewP = class(TForm)
@@ -17,26 +18,32 @@ type
     lb_Poderes: TLabel;
     lb_Est: TLabel;
     edt_Resp: TLabeledEdit;
-    DataNasc: TCalendarPicker;
     edt_Ocupacao: TLabeledEdit;
     lb_DateNasc: TLabel;
     edt_Nome: TLabeledEdit;
     edt_Raca: TLabeledEdit;
     lbHabilidades: TLabel;
     lbInf: TLabel;
+    edt_Nasc: TEdit;
+    pnl_Save: TPanel;
+    lb_Aviso: TLabel;
+    Timer: TTimer;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure pnl_SaveClick(Sender: TObject);
+    procedure TimerTimer(Sender: TObject);
   private
     { Private declarations }
 
   public
     { Public declarations }
-    procedure PegarDados(const Nome, Raca, Ocupacao, Respiracao, Poderes, EstiloLuta : string;DtNasc:TDateTime);
+    procedure PegarDados(const Nome, Raca, Ocupacao, Respiracao, Poderes, EstiloLuta : string;DtNasc:TDateTime;IdP:integer);
   end;
 
 var
   FormViewP: TFormViewP;
   FNome, FRaca, FOcupacao, FRespiracao, FPoderes, FEstiloLuta: string;
+  FIdP:integer;
   FDtNasc: TDateTime;
 implementation
 
@@ -63,6 +70,7 @@ begin
   edt_Resp.Text:=FRespiracao;
   memo_Estilo.Text:=FEstiloLuta;
   memo_Poderes.Text:=FPoderes;
+  edt_Nasc.Text:=datetostr(FDtNasc);
   FormPrincipal.pnl_Side.Color:=$00D8AFE5;
   FormPrincipal.pnl_NovoPersonagem.Color:=$00D8AFE5;
   FormPrincipal.pnl_Home.Color:=$00D8AFE5;
@@ -71,7 +79,7 @@ begin
 end;
 
 procedure TFormViewP.PegarDados(const Nome, Raca, Ocupacao, Respiracao, Poderes,
-  EstiloLuta: string; DtNasc: TDateTime);
+  EstiloLuta: string; DtNasc: TDateTime; IdP:integer);
 begin
   FNome:=Nome;
   FRaca:=Raca;
@@ -79,6 +87,27 @@ begin
   FRespiracao:=Respiracao;
   FEstiloLuta:=EstiloLuta;
   FPoderes:=Poderes;
+  FIdP:=IdP;
+  FDtNasc:=DtNasc;
+end;
+
+procedure TFormViewP.pnl_SaveClick(Sender: TObject);
+var
+  UpPersonagem:TPersonagem;
+begin
+  UpPersonagem:=TPersonagem.Create(edt_Nome.Text, edt_raca.Text, edt_Ocupacao.text, edt_Resp.Text, memo_Estilo.text, memo_Poderes.Text, strtodate(edt_nasc.Text), FIdP);
+  try
+    lb_Aviso.Visible:=true;
+    UpPersonagem.UpdatePersonagem;
+    Timer.Enabled:=true;
+  finally
+    UpPersonagem.Free;
+  end;
+end;
+
+procedure TFormViewP.TimerTimer(Sender: TObject);
+begin
+ lb_Aviso.Visible:=false;
 end;
 
 end.

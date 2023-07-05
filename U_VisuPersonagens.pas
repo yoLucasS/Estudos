@@ -45,21 +45,23 @@ procedure TFormVisuPerso.db_PersonagensDblClick(Sender: TObject);
 var
   View:TFormViewP;
   Nome, Raca, Ocupacao, Respiracao, Poderes, EstiloLuta: string;
+  IdP:integer;
   DtNasc: TDateTime;
 begin
   FormPrincipal.CloseForms;
-  Nome := db_Personagens.DataSource.DataSet.FieldByName('nome').AsString;
-  Raca := db_Personagens.DataSource.DataSet.FieldByName('raca').AsString;
-  Ocupacao := db_Personagens.DataSource.DataSet.FieldByName('ocupacao').AsString;
-  Respiracao := db_Personagens.DataSource.DataSet.FieldByName('respiracoes').AsString;
-  EstiloLuta := db_Personagens.DataSource.DataSet.FieldByName('habilidades').AsString;
-  Poderes := db_Personagens.DataSource.DataSet.FieldByName('poderes').AsString;
-  DtNasc := db_Personagens.DataSource.DataSet.FieldByName('data_nasc').AsDateTime;
+  Nome:=db_Personagens.DataSource.DataSet.FieldByName('nome').AsString;
+  Raca:=db_Personagens.DataSource.DataSet.FieldByName('raca').AsString;
+  Ocupacao:=db_Personagens.DataSource.DataSet.FieldByName('ocupacao').AsString;
+  Respiracao:=db_Personagens.DataSource.DataSet.FieldByName('respiracoes').AsString;
+  EstiloLuta:=db_Personagens.DataSource.DataSet.FieldByName('habilidades').AsString;
+  Poderes:=db_Personagens.DataSource.DataSet.FieldByName('poderes').AsString;
+  DtNasc:=db_Personagens.DataSource.DataSet.FieldByName('data_nasc').AsDateTime;
+  IdP:=db_Personagens.DataSource.DataSet.FieldByName('id_personagem').asinteger;
   View:=TFormViewP.Create(nil);
   try
-  View.PegarDados(Nome, Raca, Ocupacao, Respiracao, Poderes, EstiloLuta, DtNasc);
-  FormViewP.Parent := FormPrincipal.pnl_Container;
-  FormViewP.Show;
+    View.PegarDados(Nome, Raca, Ocupacao, Respiracao, Poderes, EstiloLuta, DtNasc, IdP);
+    FormViewP.Parent:=FormPrincipal.pnl_Container;
+    FormViewP.Show;
   finally
     View.Free;
   end;
@@ -90,7 +92,7 @@ var
   Personagem:TPersonagem;
   DataSource:TDataSource;
 begin
-  Personagem:=TPersonagem.Create(edt_Pesq.Text, '', '', '', '', '', 0);
+  Personagem:=TPersonagem.Create(edt_Pesq.Text, '', '', '', '', '', 0, 0);
   try
     DataSource:=TDataSource.Create(nil);
     DataSource.DataSet:=Personagem.SelectPersonagens;
@@ -104,7 +106,6 @@ end;
 
 procedure TFormVisuPerso.FormShow(Sender: TObject);
 begin
-
   TCustom(db_Personagens).ScrollBars:=ssvertical;
   TCustom(db_Personagens).DefaultRowHeight:=30;
   TCustom(db_Personagens).ClientHeight:=(30 * TCustom(db_Personagens).RowCount) +30;

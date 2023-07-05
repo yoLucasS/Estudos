@@ -6,7 +6,7 @@ uses
   U_Con, Vcl.Dialogs, FireDAC.Comp.Client, System.SysUtils, FireDAC.DApt;
 
 type
-  TPessoa = class
+  TLogin = class
   private
     FUser: string;
     FSenha: string;
@@ -17,15 +17,15 @@ type
 
 implementation
 
-{ TPessoa }
+{ TLogin }
 
-constructor TPessoa.Create(const AUser, ASenha: string);
+constructor TLogin.Create(const AUser, ASenha: string);
 begin
   FUser:=AUser;
   FSenha:=ASenha;
 end;
 
-function TPessoa.SelectUser: Boolean;
+function TLogin.SelectUser: Boolean;
 var
   Query:TFDQuery;
 begin

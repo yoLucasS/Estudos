@@ -16,8 +16,8 @@
     <Transaction>2023/06/29 13:33:44.000.535,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_Login.pas</Transaction>
     <Transaction>2023/06/29 13:33:44.000.535,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_Login.dfm</Transaction>
     <Transaction>2023/06/29 13:34:05.000.872,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit2.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\ClassLogin.pas</Transaction>
-    <Transaction>2023/06/29 13:34:23.000.393,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit4.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_Index.dfm</Transaction>
     <Transaction>2023/06/29 13:34:23.000.393,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit4.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_Index.pas</Transaction>
+    <Transaction>2023/06/29 13:34:23.000.393,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit4.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_Index.dfm</Transaction>
     <Transaction>2023/06/29 13:54:28.000.076,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas</Transaction>
     <Transaction>2023/06/29 13:56:15.000.442,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_NewPersonagem.pas</Transaction>
     <Transaction>2023/06/29 13:56:15.000.442,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_NewPersonagem.dfm</Transaction>
@@ -27,8 +27,23 @@
     <Transaction>2023/06/29 16:34:11.000.455,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_VisuPersonagens.pas</Transaction>
     <Transaction>2023/06/29 16:34:11.000.455,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_VisuPersonagens.dfm</Transaction>
     <Transaction>2023/06/30 09:12:58.000.820,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\ClassCadastroPersonagem.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\ClassPersonagem.pas</Transaction>
-    <Transaction>2023/06/30 13:34:53.917,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas</Transaction>
-    <Transaction>2023/06/30 13:35:07.122,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_PersonagemView.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas</Transaction>
-    <Transaction>2023/06/30 13:35:07.122,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_PersonagemView.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.dfm</Transaction>
-  </Transactions>
+    <Transaction>2023/06/30 13:34:53.000.917,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas</Transaction>
+    <Transaction>2023/06/30 13:35:07.000.122,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_PersonagemView.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.pas</Transaction>
+    <Transaction>2023/06/30 13:35:07.000.122,C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\U_PersonagemView.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Study\Unit1.dfm</Transaction>
+  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="ClassLogin.pas"/>
+    <File Path="ClassPersonagem.pas"/>
+    <File Path="U_Con.pas"/>
+    <File Path="U_Con.dfm"/>
+    <File Path="U_Index.pas"/>
+    <File Path="U_Index.dfm"/>
+    <File Path="U_Login.pas"/>
+    <File Path="U_Login.dfm"/>
+    <File Path="U_NewPersonagem.pas"/>
+    <File Path="U_NewPersonagem.dfm"/>
+    <File Path="U_PersonagemView.pas"/>
+    <File Path="U_PersonagemView.dfm"/>
+    <File Path="U_VisuPersonagens.pas"/>
+    <File Path="U_VisuPersonagens.dfm"/>
+  </ProjectSortOrder>
 </BorlandProject>

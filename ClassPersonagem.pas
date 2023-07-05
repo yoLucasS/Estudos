@@ -15,15 +15,19 @@ type
     FRespiracao:string;
     FHabilidades:string;
     FPoderes:string;
+    FId:integer;
   public
-    constructor Create(const ANome, ARaca, AOcupacao, ARespiracao, AHabilidades, APoderes:string; ADataNasc:TDate);
+    constructor Create(const ANome, ARaca, AOcupacao, ARespiracao, AHabilidades, APoderes:string; ADataNasc:TDate; AId:integer);
+    procedure refresh;
     function CadNovoPersonagem:TPersonagem;
     function SelectPersonagens:TFdQuery;
+    function UpdatePersonagem:TFdQuery;
   end;
 
 implementation
 
 { TPersonagem }
+uses U_VisuPersonagens;
 
 function TPersonagem.CadNovoPersonagem: TPersonagem;
 var
@@ -45,12 +49,13 @@ begin
     Query.ExecSQL;
     result:=Self;
   finally
+    refresh;
     Query.Free;
   end;
 end;
 
 constructor TPersonagem.Create(const ANome, ARaca, AOcupacao, ARespiracao,
-  AHabilidades, APoderes: string; ADataNasc: TDate);
+  AHabilidades, APoderes: string; ADataNasc: TDate; AId:integer);
 begin
   FNome:=ANome;
   FRaca:=ARaca;
@@ -59,24 +64,58 @@ begin
   FRespiracao:=ARespiracao;
   FHabilidades:=AHabilidades;
   FPoderes:=APoderes;
+  FId:=AId;
 end;
 
-function TPersonagem.SelectPersonagens: TFDQuery;
+procedure TPersonagem.refresh;
+begin
+  FormVisuPerso.db_Personagens.DataSource.DataSet.Refresh;
+end;
+
+function TPersonagem.SelectPersonagens:TFDQuery;
 var
   Query: TFDQuery;
 begin
-  Query := TFDQuery.Create(nil);
-  Query.Connection := DmConn.Conn;
+  Query:=TFDQuery.Create(nil);
+  Query.Connection:=DmConn.Conn;
   Query.SQL.Clear;
-  Query.SQL.Text := 'SELECT * FROM personagens WHERE nome LIKE :filtro';
-  Query.ParamByName('filtro').AsString := '%' + FNome + '%';
+  Query.SQL.Text:='SELECT * FROM personagens WHERE nome LIKE :filtro or respiracoes LIKE :filtro';
+  Query.ParamByName('filtro').AsString:='%' + FNome + '%';
   try
     Query.Open;
-    Result := Query;
+    Result:=Query;
   except
     Query.Free;
+    refresh;
     raise;
   end;
+end;
+
+function TPersonagem.UpdatePersonagem:TfDQuery;
+var
+  Query:TfDQuery;
+begin
+  Query:=TfDQuery.Create(nil);
+  Query.Connection:=DmConn.Conn;
+  try
+    Query.SQL.Clear;
+    Query.SQL.Text:='UPDATE personagens SET nome = :nome, data_nasc = :nasc, ocupacao = :ocupacao, respiracoes = :resp, habilidades = :habilidades, poderes = :poderes, raca = :raca'+
+      ' WHERE id_personagem = :idP';
+    Query.ParamByName('nome').AsString:=FNome;
+    Query.ParamByName('nasc').AsDate:=FDataNasc;
+    Query.ParamByName('ocupacao').AsString:=FOcupacao;
+    Query.ParamByName('resp').AsString:=FRespiracao;
+    Query.ParamByName('habilidades').AsString:=FHabilidades;
+    Query.ParamByName('poderes').AsString:=FPoderes;
+    Query.ParamByName('raca').AsString:=FRaca;
+    Query.ParamByName('idP').AsInteger:=FId;
+    Query.ExecSQL;
+    result:=Query;
+  finally
+    Query.Free;
+     refresh;
+  end;
+
 end;
 
 end.

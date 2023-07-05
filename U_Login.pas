@@ -48,10 +48,9 @@ var
   R: TRect;
   Rgn: HRGN;
 begin
-  with Control do
-  begin
-    R := ClientRect;
-    Rgn := CreateRoundRectRgn(R.Left, R.Top, R.Right, R.Bottom, 5, 5);
+  with Control do begin
+    R:=ClientRect;
+    Rgn:=CreateRoundRectRgn(R.Left, R.Top, R.Right, R.Bottom, 5, 5);
     Perform(EM_GETRECT, 0, lParam(@R));
     InflateRect(R, -4, -4);
     Perform(EM_SETRECTNP, 0, lParam(@R));
@@ -62,7 +61,7 @@ end;
 
 procedure TFormLogin.FormCreate(Sender: TObject);
 begin
-  pnl_Login.BorderStyle := bsNone;
+  pnl_Login.BorderStyle:=bsNone;
   DrawControl(pnl_Login);
 end;
 
@@ -79,22 +78,21 @@ end;
 
 procedure TFormLogin.pnl_LoginClick(Sender: TObject);
 var
-  Pessoa: TPessoa;
+  Pessoa: TLogin;
   User, Senha: string;
 begin
-  User := edt_User.Text;
-  Senha := edt_Senha.Text;
+  User:=edt_User.Text;
+  Senha:=edt_Senha.Text;
 
-  Pessoa := TPessoa.Create(User, Senha);
+  Pessoa:=TLogin.Create(User, Senha);
   try
     if Pessoa.SelectUser then begin
-      Self.ClientHeight := -1;
-      Self.ClientWidth := -1;
+      Self.ClientHeight:=-1;
+      Self.ClientWidth:=-1;
       FormPrincipal.ShowModal;
-    end else
-    begin
-      Timer.Enabled := True;
-      lb_Error.Visible := True;
+    end else begin
+      Timer.Enabled:=True;
+      lb_Error.Visible:=True;
     end;
   finally
     Pessoa.Free;
@@ -103,17 +101,17 @@ end;
 
 procedure TFormLogin.pnl_LoginMouseEnter(Sender: TObject);
 begin
-  pnl_Login.Color := clBlack;
+  pnl_Login.Color:=clBlack;
 end;
 
 procedure TFormLogin.pnl_LoginMouseLeave(Sender: TObject);
 begin
-  pnl_Login.Color := $00F6EAAC;
+  pnl_Login.Color:=$00F6EAAC;
 end;
 
 procedure TFormLogin.TimerTimer(Sender: TObject);
 begin
-  lb_Error.Visible := false;
+  lb_Error.Visible:=false;
 end;
 
 end.

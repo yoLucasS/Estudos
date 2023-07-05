@@ -10080,7 +10080,7 @@ object FormVisuPerso: TFormVisuPerso
     Left = 49
     Top = 141
     Width = 544
-    Height = 120
+    Height = 476
     BorderStyle = bsNone
     DataSource = DataSource1
     Font.Charset = DEFAULT_CHARSET

@@ -54,7 +54,8 @@ begin
     edt_Resp.Text,
     memo_Estilo.text,
     memo_Poderes.Text,
-    DataNasc.Date
+    DataNasc.Date,
+    0
   );
   try
     Personagem.CadNovoPersonagem;
