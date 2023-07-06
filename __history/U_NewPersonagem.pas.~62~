@@ -54,10 +54,12 @@ begin
     edt_Resp.Text,
     memo_Estilo.text,
     memo_Poderes.Text,
-    DataNasc.Date
+    DataNasc.Date,
+    0
   );
   try
     Personagem.CadNovoPersonagem;
+    showmessage(Personagem.CadNovoPersonagem);
     lb_Personagem.Visible:=true;
   finally
     Personagem.Free;
@@ -74,9 +76,11 @@ procedure TFormNewPersonagem.LimparCampos;
 var i:integer;
 begin
   for I := 0 to Self.ControlCount -1 do begin
-    if (self.Controls[i] is TEdit) then
-      TEdit(self.Controls[i]).Clear;
+    if (self.Controls[i] is TLabeledEdit) then begin
+      TLabeledEdit(self.Controls[i]).Clear;
+    end else if (self.controls[i] is TMemo) then begin
+       TMemo(self.controls[i]).Clear;
+    end;
   end;
 end;
-
 end.

@@ -55,10 +55,11 @@ begin
     memo_Estilo.text,
     memo_Poderes.Text,
     DataNasc.Date,
-    ''
+    0
   );
   try
     Personagem.CadNovoPersonagem;
+    showmessage(Personagem.CadNovoPersonagem.ToString);
     lb_Personagem.Visible:=true;
   finally
     Personagem.Free;

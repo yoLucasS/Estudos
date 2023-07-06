@@ -10156,12 +10156,14 @@
     Font.Name = 'Small Fonts'
     Font.Style = [fsBold]
     ParentFont = False
+    Visible = False
   end
   object edt_Nome: TLabeledEdit
     Left = 49
     Top = 144
     Width = 256
     Height = 21
+    Color = clWhite
     EditLabel.Width = 133
     EditLabel.Height = 13
     EditLabel.Caption = 'Nome do personagem'
@@ -10306,5 +10308,11 @@
     ParentFont = False
     TabOrder = 7
     OnClick = pnl_SalvarClick
+  end
+  object Timer: TTimer
+    Enabled = False
+    Interval = 3000
+    OnTimer = TimerTimer
+    Left = 960
   end
 end

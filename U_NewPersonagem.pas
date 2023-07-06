@@ -47,7 +47,7 @@ procedure TFormNewPersonagem.pnl_SalvarClick(Sender: TObject);
 var
   Personagem:TPersonagem;
 begin
-  Personagem := TPersonagem.Create(
+  Personagem:=TPersonagem.Create(
     edt_Nome.Text,
     edt_Raça.Text,
     edt_Ocupacao.Text,
@@ -58,7 +58,7 @@ begin
     0
   );
   try
-    Personagem.CadNovoPersonagem;
+    lb_Personagem.Caption:='Personagem '+Personagem.CadNovoPersonagem+' cadastrado com sucesso!';
     lb_Personagem.Visible:=true;
   finally
     Personagem.Free;
@@ -68,13 +68,13 @@ end;
 
 procedure TFormNewPersonagem.TimerTimer(Sender: TObject);
 begin
-  lb_Personagem.Visible := false;
+  lb_Personagem.Visible:=false;
 end;
 
 procedure TFormNewPersonagem.LimparCampos;
 var i:integer;
 begin
-  for I := 0 to Self.ControlCount -1 do begin
+  for I:=0 to Self.ControlCount -1 do begin
     if (self.Controls[i] is TLabeledEdit) then begin
       TLabeledEdit(self.Controls[i]).Clear;
     end else if (self.controls[i] is TMemo) then begin

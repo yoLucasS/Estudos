@@ -19,7 +19,7 @@ type
   public
     constructor Create(const ANome, ARaca, AOcupacao, ARespiracao, AHabilidades, APoderes:string; ADataNasc:TDate; AId:integer);
     procedure refresh;
-    function CadNovoPersonagem:TPersonagem;
+    function CadNovoPersonagem:string;
     function SelectPersonagens:TFdQuery;
     function UpdatePersonagem:TFdQuery;
   end;
@@ -29,7 +29,7 @@ implementation
 { TPersonagem }
 uses U_VisuPersonagens;
 
-function TPersonagem.CadNovoPersonagem: TPersonagem;
+function TPersonagem.CadNovoPersonagem: string;
 var
   Query:TFdQuery;
 begin
@@ -38,7 +38,7 @@ begin
   try
     Query.SQL.Clear;
     Query.SQL.Text:='INSERT INTO personagens (nome, raca, data_nasc, ocupacao, respiracoes, habilidades, poderes)'+
-    ' VALUES(:nome, :raca, :data_nasc, :ocupacao, :respiracoes, :habilidades, :poderes)';
+    ' VALUES(:nome, :raca, :data_nasc, :ocupacao, :respiracoes, :habilidades, :poderes) RETURNING nome';
     Query.ParamByName('nome').AsString:=FNome;
     Query.ParamByName('raca').AsString:=FRaca;
     Query.ParamByName('data_nasc').AsDatetime:=FDataNasc;
@@ -46,8 +46,8 @@ begin
     Query.ParamByName('respiracoes').AsString:=FRespiracao;
     Query.ParamByName('habilidades').AsString:=FHabilidades;
     Query.ParamByName('poderes').AsString:=FPoderes;
-    Query.ExecSQL;
-    result:=Self;
+    Query.Open;
+    result:=Query.FieldByName('nome').Value;
   finally
     refresh;
     Query.Free;

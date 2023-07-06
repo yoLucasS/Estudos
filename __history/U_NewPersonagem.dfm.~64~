@@ -10147,11 +10147,10 @@
   object lb_Personagem: TLabel
     Left = 49
     Top = 608
-    Width = 435
+    Width = 8
     Height = 26
-    Caption = 'Personagem cadastrado com sucesso!'
     Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
+    Font.Color = 10272853
     Font.Height = -23
     Font.Name = 'Small Fonts'
     Font.Style = [fsBold]
@@ -10162,6 +10161,7 @@
     Top = 144
     Width = 256
     Height = 21
+    Color = clWhite
     EditLabel.Width = 133
     EditLabel.Height = 13
     EditLabel.Caption = 'Nome do personagem'
@@ -10306,5 +10306,11 @@
     ParentFont = False
     TabOrder = 7
     OnClick = pnl_SalvarClick
+  end
+  object Timer: TTimer
+    Enabled = False
+    Interval = 3000
+    OnTimer = TimerTimer
+    Left = 960
   end
 end

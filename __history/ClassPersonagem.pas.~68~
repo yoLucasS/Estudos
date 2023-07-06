@@ -1,5 +1,5 @@
 unit ClassPersonagem;
-
+if
 interface
 
 uses U_Con,FireDAC.Comp.Client, FireDAC.DApt;
@@ -21,7 +21,7 @@ type
     procedure refresh;
     function CadNovoPersonagem:TPersonagem;
     function SelectPersonagens:TFdQuery;
-    function UpdatePersonagem:TfDQuery;
+    function UpdatePersonagem:TFdQuery;
   end;
 
 implementation
@@ -49,6 +49,7 @@ begin
     Query.ExecSQL;
     result:=Self;
   finally
+    refresh;
     Query.Free;
   end;
 end;
@@ -68,23 +69,24 @@ end;
 
 procedure TPersonagem.refresh;
 begin
-      FormVisuPerso.db_Personagens.DataSource.DataSet.Refresh;
+  FormVisuPerso.db_Personagens.DataSource.DataSet.Refresh;
 end;
 
-function TPersonagem.SelectPersonagens: TFDQuery;
+function TPersonagem.SelectPersonagens:TFDQuery;
 var
   Query: TFDQuery;
 begin
   Query:=TFDQuery.Create(nil);
   Query.Connection:=DmConn.Conn;
   Query.SQL.Clear;
-  Query.SQL.Text:='SELECT * FROM personagens WHERE nome LIKE :filtro';
+  Query.SQL.Text:='SELECT * FROM personagens WHERE nome LIKE :filtro or respiracoes LIKE :filtro';
   Query.ParamByName('filtro').AsString:='%' + FNome + '%';
   try
     Query.Open;
     Result:=Query;
   except
     Query.Free;
+    refresh;
     raise;
   end;
 end;
@@ -108,10 +110,10 @@ begin
     Query.ParamByName('raca').AsString:=FRaca;
     Query.ParamByName('idP').AsInteger:=FId;
     Query.ExecSQL;
-
     result:=Query;
   finally
     Query.Free;
+     refresh;
   end;
 
 end;

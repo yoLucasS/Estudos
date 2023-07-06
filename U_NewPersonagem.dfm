@@ -10147,9 +10147,8 @@
   object lb_Personagem: TLabel
     Left = 49
     Top = 608
-    Width = 435
+    Width = 8
     Height = 26
-    Caption = 'Personagem cadastrado com sucesso!'
     Font.Charset = ANSI_CHARSET
     Font.Color = 10272853
     Font.Height = -23

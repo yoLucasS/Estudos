@@ -19,7 +19,7 @@ type
   public
     constructor Create(const ANome, ARaca, AOcupacao, ARespiracao, AHabilidades, APoderes:string; ADataNasc:TDate; AId:integer);
     procedure refresh;
-    function CadNovoPersonagem:TPersonagem;
+    function CadNovoPersonagem:string;
     function SelectPersonagens:TFdQuery;
     function UpdatePersonagem:TFdQuery;
   end;
@@ -29,7 +29,7 @@ implementation
 { TPersonagem }
 uses U_VisuPersonagens;
 
-function TPersonagem.CadNovoPersonagem: TPersonagem;
+function TPersonagem.CadNovoPersonagem: string;
 var
   Query:TFdQuery;
 begin
@@ -72,14 +72,14 @@ begin
   FormVisuPerso.db_Personagens.DataSource.DataSet.Refresh;
 end;
 
-function TPersonagem.SelectPersonagens: TFDQuery;
+function TPersonagem.SelectPersonagens:TFDQuery;
 var
   Query: TFDQuery;
 begin
   Query:=TFDQuery.Create(nil);
   Query.Connection:=DmConn.Conn;
   Query.SQL.Clear;
-  Query.SQL.Text:='SELECT * FROM personagens WHERE nome LIKE :filtro';
+  Query.SQL.Text:='SELECT * FROM personagens WHERE nome LIKE :filtro or respiracoes LIKE :filtro';
   Query.ParamByName('filtro').AsString:='%' + FNome + '%';
   try
     Query.Open;

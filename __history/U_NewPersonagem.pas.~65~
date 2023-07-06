@@ -59,6 +59,7 @@ begin
   );
   try
     Personagem.CadNovoPersonagem;
+    lb_Personagem.Caption:='Personagem' + Personagem.CadNovoPersonagem +' cadastrado com sucesso!';
     lb_Personagem.Visible:=true;
   finally
     Personagem.Free;
